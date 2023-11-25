@@ -1,0 +1,13 @@
+services:
+  php:
+    image: ibrahimgunduz34/php-app
+    build:
+      context: .
+      dockerfile: ./php-fpm.Dockerfile
+  nginx:
+    image: ibrahimgunduz34/nginx
+    build:
+      context: .
+      dockerfile: ./nginx.Dockerfile
+    ports:
+      - 80:8080
