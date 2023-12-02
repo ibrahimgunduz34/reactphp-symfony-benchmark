@@ -5,17 +5,8 @@ RUN mkdir /var/app
 
 RUN docker-php-ext-install pdo pdo_pgsql
 
-WORKDIR /var/app/public
+WORKDIR /var/app
 
-COPY src /var/app/src
-COPY public /var/app/public
-COPY config /var/app/config
-COPY bin /var/app/bin
-COPY vendor /var/app/vendor
-COPY composer.json /var/app/composer.json
-COPY composer.lock /var/app/composer.lock
-
-COPY .env /var/app/.env
 COPY www.conf /usr/local/etc/php-fpm.d/www.conf
 
 RUN chown -R www-data:www-data /var/app
