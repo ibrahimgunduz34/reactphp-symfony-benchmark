@@ -18,8 +18,6 @@ class AppFixtures extends Fixture
         $connection->getConfiguration()->setSQLLogger(null);
         $connection->getConfiguration()->setMiddlewares([]);
 
-        $connection->executeQuery("TRUNCATE TABLE product;");
-
         for ($i = 1; $i <= ($totalCount / $pageSize); $i++) {
             $this->createFakeData($connection, $i, $pageSize);;
             echo "Memory usage after #{$i}: " . memory_get_usage() . PHP_EOL;
@@ -27,8 +25,6 @@ class AppFixtures extends Fixture
     }
 
     private function createFakeData(Connection $connection, int $startFrom, int $pageSize): void {
-
-
         $sql = "INSERT INTO product (code, name, description, color, size) VALUES "
             . str_repeat("(?,?,?,?,?),", $pageSize);
 
@@ -40,10 +36,11 @@ class AppFixtures extends Fixture
 
         for($i = 0; $i < $pageSize; $i++) {
             $val = $i + $startFrom;
+            $productColor = $color[$i % 3];
             array_push($data, "c{$val}");
-            array_push($data, "sample product {$val}");
-            array_push($data, "sample product description {$val}");
-            array_push($data, $color[$i % 3]);
+            array_push($data, "{$productColor} sample product {$val}");
+            array_push($data, "A sample product with {{$productColor}} color, itemIndex: {$val}.");
+            array_push($data, $productColor);
             array_push($data, $i % 10);
             unset($val);
         }
