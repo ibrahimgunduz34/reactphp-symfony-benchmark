@@ -20,6 +20,11 @@ class IndexController extends AbstractController {
     public function getProduct(string $code): JsonResponse  {
         $product = $this->repository->findOneBy(['code' => $code]);
         return $this->json($product, Response::HTTP_OK);
-//        return $this->json(['status' => 'ok']);
+    }
+
+    #[Route('/products/{code}/indexed')]
+    public function getProductWithIndexedField(string $code): JsonResponse  {
+        $product = $this->repository->findOneBy(['code1' => $code]);
+        return $this->json($product, Response::HTTP_OK);
     }
 }

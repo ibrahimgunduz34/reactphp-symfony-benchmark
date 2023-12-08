@@ -6,9 +6,11 @@ use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\GeneratedValue;
 use Doctrine\ORM\Mapping\Id;
+use Doctrine\ORM\Mapping\Index;
 use JetBrains\PhpStorm\ArrayShape;
 
 #[Entity]
+#[Index(columns: ["code1"])]
 class Product implements \JsonSerializable
 {
     #[Id]
@@ -18,6 +20,9 @@ class Product implements \JsonSerializable
 
     #[Column(length: 10)]
     private string $code;
+
+    #[Column(length: 10)]
+    private string $code1;
 
     #[Column(length: 50)]
     private string $name;
@@ -127,11 +132,28 @@ class Product implements \JsonSerializable
         $this->color = $color;
     }
 
-    #[ArrayShape(['code' => "string", 'name' => "string", 'description' => "string", 'color' => "string", 'size' => "int"])]
+    /**
+     * @return string
+     */
+    public function getCode1(): string
+    {
+        return $this->code1;
+    }
+
+    /**
+     * @param string $code1
+     */
+    public function setCode1(string $code1): void
+    {
+        $this->code1 = $code1;
+    }
+
+    #[ArrayShape(['code' => "string", 'code1' => "string", 'name' => "string", 'description' => "string", 'color' => "string", 'size' => "int"])]
     public function jsonSerialize(): array
     {
         return [
             'code' => $this->code,
+            'code1' => $this->code1,
             'name' => $this->name,
             'description' => $this->description,
             'color' => $this->color,

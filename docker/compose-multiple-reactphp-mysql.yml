@@ -1,0 +1,30 @@
+services:
+  php:
+    image: ibrahimgunduz34/php-app-reactphp-mysql
+    build:
+      context: ../
+      dockerfile: ./docker/php-reactphp-mysql-dev.Dockerfile
+    volumes:
+      - ../:/var/app
+      - ../.env-mysql:/var/app/.env
+    deploy:
+      replicas: 3
+
+  nginx:
+    image: ibrahimgunduz34/nginx
+    build:
+      context: ../
+      dockerfile: ./docker/nginx-multiple-reactphp.Dockerfile
+    ports:
+      - 80:8080
+
+  database:
+    image: mariadb:11.1.3
+    environment:
+      MARIADB_DATABASE: ${MARIADB_DATABASE}
+      MARIADB_ROOT_PASSWORD: ${MARIADB_PASSWORD}
+    volumes:
+      - database_data:/var/lib/mysql:rw
+
+volumes:
+  database_data:
