@@ -3,7 +3,7 @@ services:
     image: ibrahimgunduz34/php-app-reactphp-pgsql
     build:
       context: ../
-      dockerfile: ./docker/php-reactphp.dev.Dockerfile
+      dockerfile: ./docker/php-reactphp-opcache.dev.Dockerfile
     volumes:
       - ../:/var/app
       - ../.env-pgsql:/var/app/.env

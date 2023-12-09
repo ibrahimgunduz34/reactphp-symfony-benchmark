@@ -1,0 +1,56 @@
+Lifting the server siege...
+Transactions:		       16385 hits
+Availability:		      100.00 %
+Elapsed time:		       29.89 secs
+Data transferred:	        0.06 MB
+Response time:		        0.04 secs
+Transaction rate:	      548.18 trans/sec
+Throughput:		        0.00 MB/sec
+Concurrency:		       22.23
+Successful transactions:       16385
+Failed transactions:	           0
+Longest transaction:	        1.16
+Shortest transaction:	        0.00
+ 
+Lifting the server siege...
+Transactions:		       16417 hits
+Availability:		      100.00 %
+Elapsed time:		       29.21 secs
+Data transferred:	        0.06 MB
+Response time:		        0.07 secs
+Transaction rate:	      562.03 trans/sec
+Throughput:		        0.00 MB/sec
+Concurrency:		       37.71
+Successful transactions:       16417
+Failed transactions:	           0
+Longest transaction:	        1.09
+Shortest transaction:	        0.00
+ 
+Lifting the server siege...
+Transactions:		       16471 hits
+Availability:		      100.00 %
+Elapsed time:		       29.21 secs
+Data transferred:	        0.06 MB
+Response time:		        0.14 secs
+Transaction rate:	      563.88 trans/sec
+Throughput:		        0.00 MB/sec
+Concurrency:		       76.83
+Successful transactions:       16471
+Failed transactions:	           0
+Longest transaction:	        1.35
+Shortest transaction:	        0.00
+ 
+Lifting the server siege...
+Transactions:		       16531 hits
+Availability:		      100.00 %
+Elapsed time:		       29.27 secs
+Data transferred:	        0.06 MB
+Response time:		        0.26 secs
+Transaction rate:	      564.78 trans/sec
+Throughput:		        0.00 MB/sec
+Concurrency:		      144.72
+Successful transactions:       16531
+Failed transactions:	           0
+Longest transaction:	        0.72
+Shortest transaction:	        0.00
+ 

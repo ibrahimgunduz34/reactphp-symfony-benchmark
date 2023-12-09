@@ -3,7 +3,7 @@ services:
     image: ibrahimgunduz34/php-app-reactphp-mysql
     build:
       context: ../
-      dockerfile: ./docker/php-reactphp-mysql-dev.Dockerfile
+      dockerfile: ./docker/php-reactphp-opcache-mysql-dev.Dockerfile
     volumes:
       - ../:/var/app
       - ../.env-mysql:/var/app/.env
